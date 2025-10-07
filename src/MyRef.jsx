@@ -1,47 +1,27 @@
-import { Component, createRef } from "react";
+// import { Component, createRef } from "react";
+import { forwardRef } from "react";
 
 
-class MyRef extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-       value: ""
-    }
-
-    this.myTitle = createRef()
-    // console.log(this.myTitle)
-
-    this.myInput = createRef()
-  }
-
-  // update = (event) => {
-  //   this.setState({
-  //     value: event.target.value
-  //   })
-  // }
 
 
-  addFocus = () => {
-    this.myInput.current.focus();
-  }
+const MyRef = forwardRef((props, ref)=> {
 
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   this.myTitle.current.style.color = "blue";
-  // }
+  console.log(props)
+  console.log(ref)
 
-  // handleClick = () => {
-  //   console.log(this.myInput.current.value)
-  // }
 
-  render() {
     return (
       <div>
-        <input ref={this.myInput} type="text" />
+        <input ref={ref} type="text" />
       </div>
     )
+})
 
-  }
-}
+
+
+
+
+
+
+
 export default MyRef;
